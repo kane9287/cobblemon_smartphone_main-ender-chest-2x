@@ -43,10 +43,11 @@ object OpenPCHandler : ServerNetworkPacketHandler<OpenPCPacket> {
 
             // Recupera o PC do jogador e cria o link
             val pc = player.pc()
+
             PCLinkManager.addLink(player.uuid, pc)
 
             // Envia o packet para abrir o PC no cliente
-            com.cobblemon.mod.common.net.messages.client.storage.pc.OpenPCPacket(pc.uuid, 0).sendToPlayer(player)
+            com.cobblemon.mod.common.net.messages.client.storage.pc.OpenPCPacket(pc, box = 0).sendToPlayer(player)
         }
     }
 }
