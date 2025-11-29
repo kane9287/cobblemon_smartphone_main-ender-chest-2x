@@ -1,0 +1,6 @@
+{
+  "order": 100,
+  "size": 1,
+  "icon": "cobblemon_smartphone:slot/slot_smartphone",
+  "validators": ["curios:tag"]
+}

@@ -168,6 +168,19 @@ Customize the cooldown times for each feature:
 - Right-click while holding the smartphone to open its interface
 - Click on the desired function button to activate it
 - The interface includes hover effects for better user experience
+- Press **K** (default) to quickly open your smartphone if it's in your inventory
+
+## Trinkets Compatibility (Fabric Only)
+
+Cobblemon Smartphone has **optional** compatibility with the [Trinkets](https://modrinth.com/mod/trinkets) mod!
+
+When Trinkets is installed:
+- A new **Smartphone** slot will appear in the hand slot group in your inventory
+- You can equip your smartphone in this dedicated slot
+- The keybind (K) will detect smartphones in both Trinkets slots AND your regular inventory
+- Trinkets slots are checked first, then the regular inventory
+
+This is completely optional - the mod works perfectly fine without Trinkets installed.
 
 ## Technical Details
 - Built for the Fabric mod loader

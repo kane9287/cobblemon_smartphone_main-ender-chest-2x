@@ -13,7 +13,8 @@ class CobblemonSmartphoneFabricClient : ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick { client: Minecraft ->
             while (SmartphoneKeybinds.OPEN_SMARTPHONE.consumeClick()) {
-                SmartphoneKeybinds.handleKeybinds()
+                // Use Fabric-specific handler that supports Trinkets
+                FabricSmartphoneKeybindHandler.handleKeybind()
             }
         })
 

@@ -1,6 +1,7 @@
 package com.nbp.neoforge
 
 import com.nbp.cobblemon_smartphone.client.keybind.SmartphoneKeybinds
+import com.nbp.neoforge.keybind.NeoForgeSmartphoneKeybindHandler
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.api.distmarker.OnlyIn
 import net.neoforged.bus.api.SubscribeEvent
@@ -15,7 +16,8 @@ object CobblemonSmartphoneNeoForgeTickHandler {
     fun onClientTick(event: ClientTickEvent.Post) {
         // Loop para tratar múltiplos cliques registrados no mesmo tick
         while (SmartphoneKeybinds.OPEN_SMARTPHONE.consumeClick()) {
-            SmartphoneKeybinds.handleKeybinds()
+            // Use NeoForge-specific handler that supports Curios
+            NeoForgeSmartphoneKeybindHandler.handleKeybind()
         }
     }
 }

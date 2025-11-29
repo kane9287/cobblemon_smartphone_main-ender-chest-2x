@@ -31,5 +31,8 @@
     "minecraft": "~1.21.1",
     "java": ">=21",
     "fabric-api": "*"
+  },
+  "suggests": {
+    "trinkets": ">=3.10.0"
   }
 }

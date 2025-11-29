@@ -33,6 +33,10 @@ repositories {
         name = 'Kotlin for Forge'
         url = 'https://thedarkcolour.github.io/KotlinForForge/'
     }
+    maven {
+        name = 'Illusive Soulworks'
+        url = 'https://maven.theillusivec4.top/'
+    }
 }
 
 dependencies {
@@ -45,6 +49,10 @@ dependencies {
     implementation("thedarkcolour:kotlinforforge-neoforge:${rootProject.kotlinforforge_version}") {
         exclude group: "net.neoforged.fancymodloader", module: "loader"
     }
+    
+    // Curios API (optional) - compile against API only, full jar at runtime
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${rootProject.curios_version}:api"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${rootProject.curios_version}"
 }
 
 processResources {

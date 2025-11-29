@@ -1,5 +1,6 @@
 package com.nbp.cobblemon_smartphone
 
+import com.nbp.cobblemon_smartphone.compat.SmartphoneCompatManager
 import com.nbp.cobblemon_smartphone.registry.CobblemonSmartphoneItems
 import com.nbp.cobblemon_smartphone.util.smartphoneResource
 import net.fabricmc.api.ModInitializer
@@ -16,6 +17,9 @@ class CobblemonSmartphoneFabric : ModInitializer, Implementation {
         CobblemonSmartphone.init(this)
         networkManager.registerMessages()
         networkManager.registerServerHandlers()
+        
+        // Initialize mod compatibility (Trinkets, etc.)
+        SmartphoneCompatManager.init()
     }
 
     override fun registerItems() {

@@ -4,6 +4,7 @@ import com.nbp.cobblemon_smartphone.CobblemonSmartphone
 import com.nbp.cobblemon_smartphone.Implementation
 import com.nbp.cobblemon_smartphone.registry.CobblemonSmartphoneItems
 import com.nbp.cobblemon_smartphone.util.smartphoneResource
+import com.nbp.neoforge.compat.SmartphoneCompatManager
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack
 import net.neoforged.fml.common.Mod
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.neoforge.registries.RegisterEvent
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 
@@ -22,6 +24,14 @@ class CobblemonSmartphoneNeoForge : Implementation {
         CobblemonSmartphone.init(this)
         with(MOD_BUS) {
             addListener(networkManager::registerMessages)
+            addListener(::onCommonSetup)
+        }
+    }
+    
+    private fun onCommonSetup(event: FMLCommonSetupEvent) {
+        event.enqueueWork {
+            // Initialize optional mod compatibility (Curios)
+            SmartphoneCompatManager.init()
         }
     }
 

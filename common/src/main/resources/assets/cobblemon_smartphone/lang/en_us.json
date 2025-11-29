@@ -32,5 +32,8 @@
   "itemGroup.cobblemon_smartphone.smartphone_group": "Cobblemon Smartphone",
 
   "key.categories.cobblemon_smartphone": "Cobblemon Smartphone",
-  "key.cobblemon_smartphone.open": "Open Smartphone"
+  "key.cobblemon_smartphone.open": "Open Smartphone",
+
+  "trinkets.slot.legs.smartphone": "Smartphone",
+  "curios.identifier.smartphone": "Smartphone"
 }

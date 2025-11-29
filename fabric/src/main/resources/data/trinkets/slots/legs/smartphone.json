@@ -1,0 +1,7 @@
+{
+  "order": 10,
+  "amount": 1,
+  "icon": "cobblemon_smartphone:item/slot_smartphone",
+  "validator_predicates": ["trinkets:tag"],
+  "quick_move_predicates": ["trinkets:tag"]
+}
