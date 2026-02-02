@@ -44,10 +44,20 @@ object OpenEnderChestHandler : ServerNetworkPacketHandler<OpenEnderChestPacket> 
 
     private fun openEnderChestForPlayer(player: ServerPlayer) {
         val enderChestInventory = player.enderChestInventory
+        val rows = enderChestInventory.containerSize / 9  // Auto-detect rows: 27/9=3, 54/9=6
+        
         player.openMenu(object : MenuProvider {
             override fun getDisplayName() = Component.translatable("container.enderchest")
             override fun createMenu(containerId: Int, playerInventory: Inventory, playerEntity: Player): AbstractContainerMenu {
-                return ChestMenu.threeRows(containerId, playerInventory, enderChestInventory)
+                return when(rows) {
+                    1 -> ChestMenu.oneRow(containerId, playerInventory, enderChestInventory)
+                    2 -> ChestMenu.twoRows(containerId, playerInventory, enderChestInventory)
+                    3 -> ChestMenu.threeRows(containerId, playerInventory, enderChestInventory)
+                    4 -> ChestMenu.fourRows(containerId, playerInventory, enderChestInventory)
+                    5 -> ChestMenu.fiveRows(containerId, playerInventory, enderChestInventory)
+                    6 -> ChestMenu.sixRows(containerId, playerInventory, enderChestInventory)
+                    else -> ChestMenu.threeRows(containerId, playerInventory, enderChestInventory)  // Fallback to 3 rows
+                }
             }
         })
     }
@@ -57,3 +67,4 @@ object OpenEnderChestHandler : ServerNetworkPacketHandler<OpenEnderChestPacket> 
 object EnderChestCooldowns {
     val lastEnderChestUse = mutableMapOf<UUID, Long>()
 }
+
